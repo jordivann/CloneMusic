@@ -2,6 +2,7 @@ import Sidebar from '@/components/Sidebar';
 import './globals.css';
 import { Figtree } from 'next/font/google';
 import SupabaseProvider from '@/providers/SupabaseProvider';
+import UserProvider from '@/providers/UserProvider';
 
 const font = Figtree({ subsets: ['latin'] });
 
@@ -18,8 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
+        {/* SupabaseProvider es el componente que nos permite acceder a la base de datos del cliente */}
         <SupabaseProvider>
-          <Sidebar>{children}</Sidebar>
+          <UserProvider>
+            <Sidebar>{children}</Sidebar>
+          </UserProvider>
         </SupabaseProvider>
       </body>
     </html>
