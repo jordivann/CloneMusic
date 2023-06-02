@@ -1,11 +1,12 @@
-import { Subscription, UserDetails } from '@/types';
-import { User } from '@supabase/auth-helpers-nextjs';
+import { createContext, useContext, useEffect, useState } from 'react';
 // USE USER SE LLAMA NUESTRO HOOK
 import {
   useSessionContext,
   useUser as useSupaUser,
 } from '@supabase/auth-helpers-react';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { User } from '@supabase/auth-helpers-nextjs';
+
+import { Subscription, UserDetails } from '@/types';
 
 //context
 type UserContextType = {
